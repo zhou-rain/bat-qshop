@@ -63,22 +63,21 @@ public class TestAr {
 	 *
 	 */
 	@Test
-	public void testVersion(){
+	public void testVersion() throws InterruptedException {
 
 		User user = new User();
 
 		user.setId(8L);
 		User userVersion = user.selectById();
 
-		user.setName("潘祥森");
+		user.setName("潘祥森11789");
 		user.setVersion(userVersion.getVersion());
 		user.updateById();
 
-
 		//UPDATE tb_user
 		// SET name=?,
-		// version=?
-		// WHERE id=? AND version=?
+		// version=3
+		// WHERE id=? AND version=2
 
 	}
 

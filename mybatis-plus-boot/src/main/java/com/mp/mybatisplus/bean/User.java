@@ -2,6 +2,7 @@ package com.mp.mybatisplus.bean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.AllArgsConstructor;
@@ -16,8 +17,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-//@TableName("tb_user")	//如果表名与数据库不满足驼峰，需要加此注解， 可在全局配置文件中配置
+@TableName("tb_user")	//如果表名与数据库不满足驼峰，需要加此注解， 可在全局配置文件中配置
 public class User extends Model<User> {
+
+
 
 	//@TableId(type = IdType.AUTO) //id、自增
 	private Long id;
