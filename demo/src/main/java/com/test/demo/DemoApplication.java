@@ -66,6 +66,15 @@ public class DemoApplication {
 				</plugins>
 			</build>
 
+		3、每个实体类必须加上两个字段
+			所有表字段必须带有version和deleted字段  乐观锁和逻辑删除字段
+			//乐观锁  先去配置 OptimisticLockerInterceptor
+			@Version
+			private Integer version;
+
+			@TableLogic  //逻辑删除
+			private Integer deleted;  //1可用  0删除
+
 
 
 		3、配置文件，

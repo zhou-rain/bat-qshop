@@ -16,11 +16,14 @@ public class Msg {
 	//返回的数据
 	private Map<String, Object> extend = new HashMap<>();
 
+	static String successMsg = "处理成功";
+	static String failMsg = "处理失败";
+
 	//成功
 	public static Msg success() {
 		Msg msg = new Msg();
 		msg.setCode(1);
-		msg.setMsg("处理成功");
+		msg.setMsg(successMsg);
 		return msg;
 	}
 
@@ -28,7 +31,7 @@ public class Msg {
 	public static Msg fail() {
 		Msg msg = new Msg();
 		msg.setCode(-1);
-		msg.setMsg("处理失败");
+		msg.setMsg(failMsg);
 		return msg;
 	}
 
