@@ -1,9 +1,7 @@
 package com.bat.qmall.bean;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,10 +14,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("tb_user")	//如果表名与数据库不满足驼峰，需要加此注解
-public class User {
+//@TableName("tb_user")	//如果表名与数据库不满足驼峰，需要加此注解， 可在全局配置文件中配置
+public class User extends Model<User> {
 
-	@TableId(type = IdType.AUTO)
 	private Long id;
 	private String userName;
 	@TableField(select = false)		//查询时不返回该字段的值
@@ -29,6 +26,15 @@ public class User {
 	@TableField(value = "email")	//指定数据表中的字段名
 	private String email;
 
+	//乐观锁  先去配置 OptimisticLockerInterceptor
+	@Version
+	private Integer version;
+
+	@TableLogic  //逻辑删除
+	private Integer deleted;  //1可用  0删除
+
+	@TableField(exist = false)	//表示该字段在数据库中不存在
+	private String address;
 
 	/*
 	 * 如果字段与数据库不匹配，非驼峰，需要加
@@ -45,7 +51,6 @@ public class User {
 	 *
 	 */
 
-	@TableField(exist = false)	//表示该字段在数据库中不存在
-	private String address;
+
 
 }

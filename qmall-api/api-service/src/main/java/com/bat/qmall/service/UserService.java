@@ -1,6 +1,5 @@
 package com.bat.qmall.service;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.bat.qmall.bean.User;
 
 import java.util.List;
